@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Aérea Simples</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class='field'>
+      <div class="instructions">
+        Space = metralhadora |
+        B = mísil |
+        D = rola |
+        Levou tiro = alarme
+      </div>
+      <div id="game-container">
+        <!-- <div class='plosion'></div> -->
+        <div id="player">
+          <img src="./img/aviao.svg">
+          <img src="./img/shockwave.svg" id="shock">
+        </div>
+
+        <div id="enemy">
+          <!-- <img src="./img/yaboss.svg" id='aviao-enemy'> -->
+          <img src="" id='aviao-enemy'>
+          <div id="plosion"></div>
+        </div>
+        <div id="score">Yaboss</div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,211 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  /* Para centralizar o container verticalmente e horizontalmente (opcional) */
+  justify-content: center;
+  /* Centraliza horizontalmente (opcional) */
+  align-items: center;
+  /* Centraliza verticalmente (opcional) */
+  min-height: 100vh;
+  /* Garante que o body ocupe toda a altura da tela (opcional) */
+  /* background: url('./img/bg.png') no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%; */
+  background-color: #a0e0ff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions {
+  margin: 8px auto;
+  font-family: 'Segoe UI'
+}
+
+#game-container {
+  position: relative;
+  /* Essencial para posicionar os elementos filhos */
+  width: 1000px;
+  /* Largura para o modo retrato */
+  height: 98vh;
+  /* Altura ocupando toda a tela verticalmente */
+  /* background-color: #a0e0ff; */
+  /* Cor do céu */
+  overflow: hidden;
+  /* Garante que os elementos não saiam do container */
+}
+
+#player,
+#enemy {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 198px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .100s ease-in-out;
+  /* border: 1px solid red; */
+  z-index: 99;
+  border-radius: 35%
+}
+
+#player {
+
+  width: 80px;
+  height: 60px;
+  border-radius: 45%;
+  /* border: 1px solid red; */
+  position: absolute;
+}
+
+#player :nth-child(1) {
+  width: 75px;
+  height: 100px;
+  /* bottom: 20px; */
+  /* border: 1px solid red; */
+  position: absolute;
+  bottom: -10px
+}
+
+#enemy {
+  width: 220px;
+  height: 150px;
+}
+
+#enemy img {
+  /* tamanho doyaboss */
+  width: 220px;
+  top: 5px;
+  position: absolute;
+}
+
+#shock {
+  position: absolute;
+  width: 215px;
+  height: 80px;
+  display: none;
+}
+
+
+
+img {
+  width: 65px;
+}
+
+
+
+.mybullet {
+  position: absolute;
+  font-size: 10px;
+  /* font-family: 'Actor'; */
+  font-family: 'Advent Pro ExtraExpanded';
+  font-weight: 700;
+  text-align: center;
+  color: #363535
+}
+
+
+.bullet {
+  position: absolute;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 22px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fira Code';
+  color: #fffffd;
+
+}
+
+.missile {
+  position: absolute;
+
+  /*se quiser missil*/
+  width: 20px;
+  /*Ajustado para orientação vertical */
+  height: 32px;
+  /* Ajustado para orientação vertical */
+  background: url('./img/missile.svg') no-repeat;
+}
+
+/* .dick {
+  position: absolute;
+  width: 24px;
+  height: 40px;
+  background: url('./img/dick.svg') no-repeat;
+  border: 1px solid red;
+}
+ */
+.dick {
+  position: absolute;
+  width: 40px;
+  /* Ajustado para orientação vertical */
+  height: 65px;
+  /* Ajustado para orientação vertical */
+  background: url('./img/tux.svg') no-repeat;
+}
+
+#score {
+  position: absolute;
+  height: 25px;
+  top: 10px;
+  left: 10px;
+  font-family: sans-serif;
+  font-size: 18px;
+  background: #2b49f2;
+  color: #fdf4af;
+  border: 2px solid #bbbbbb;
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+  text-align: center;
+  transition: width .3s linear;
+}
+
+
+#plosion {
+
+  width: 100px;
+  /* Largura de UM quadro da explosão */
+  height: 100px;
+  /* Altura de UM quadro da explosão */
+  background-image: url('./img/plosion.png');
+  /* Caminho para seu sprite sheet */
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /* background-size: 100% 100%; */
+  /* Posição inicial do background */
+
+  position: absolute;
+  display: none;
+  animation: animar-explosao 0.8s steps(8) forwards;
+}
+
+@keyframes animar-explosao {
+
+  /*
+       A animação move o 'background-position' horizontalmente.
+       Se o sprite sheet tem 8 quadros de 100px de largura cada,
+       o total de deslocamento será 8 * 100px = 800px.
+       Começa em 0px (primeiro quadro) e vai até -800px (para mostrar o último quadro,
+       pois o background se move para a esquerda).
+    */
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -800px 0;
+    /* -(largura_quadro * numero_quadros) */
+  }
+}
